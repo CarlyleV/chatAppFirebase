@@ -28,4 +28,21 @@ const router = createRouter({
   routes
 })
 
+router.beforeEach((to,from,next) => {
+  if(to.path==="/register"||to.path==="/login"){
+  const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
+      console.log(user)
+      if (user) {
+          next("/");
+        } else {
+          next();
+        }
+
+    unsubscribe();
+  });}
+  else{
+    next();
+  }
+});
+
 export default router
