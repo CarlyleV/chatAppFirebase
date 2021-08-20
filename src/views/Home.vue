@@ -160,7 +160,7 @@ export default {
             //to bottom
             if(this.watchFlag){
                 this.$nextTick(() =>{
-                    document.documentElement.scrollTop = this.$refs.box.scrollHeight})
+                    document.documentElement.scrollTop = document.documentElement.scrollHeight})
             }else{ 
                 this.watchFlag = !this.watchFlag
             }
